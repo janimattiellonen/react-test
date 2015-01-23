@@ -37,23 +37,6 @@ module.exports = function(grunt) {
             }
         },
 
-        imagemin: {
-            production: {
-                options: {
-                    optimizationLevel: 3,
-                    progressive: true
-                },
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'assets/',
-                        src: ['**/*.{png,gif,jpeg,jpg,svg}'],
-                        dest: 'web/assets/'
-                    }
-                ]
-            }
-        },
-
         'http-server': {
 
             'dev': {
@@ -62,7 +45,6 @@ module.exports = function(grunt) {
                 root: 'web',
 
                 port: 9009,
-                // port: function() { return 8282; }
 
                 host: "127.0.0.1",
 
