@@ -46,7 +46,18 @@ module.exports = function(grunt) {
 
                 port: 9009,
 
-                host: "127.0.0.1",
+                hostname: "127.0.0.1",
+
+                middleware: function(connect, options, middlewares) {
+                    console.log("dsdddsgfg");
+                    middlewares.unshift(function(req, res, next) {
+                        res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1');
+                        res.setHeader('Access-Control-Allow-Methods', '*');
+                        next();
+                    });
+
+                    return middlewares;
+                },
 
                 cache: 0,
                 showDir : true,
