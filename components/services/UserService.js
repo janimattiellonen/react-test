@@ -1,10 +1,10 @@
 var async = require('async');
 var _ = require('underscore');
+var moment = require('moment');
 
-UserService = function(db, twitter, moment) {
+UserService = function(db, twitter) {
     this.db 		= db;
     this.twitter 	= twitter;
-    this.moment 	= moment;
 };
 
 UserService.prototype = (function()
@@ -54,7 +54,7 @@ UserService.prototype = (function()
 							name: 			friend.name,
 							screenName: 	friend.screen_name,
 							description: 	friend.description,
-							timestamp: 		self.moment().format(),
+							timestamp: 		moment().format(),
 						};
 
 						self.db.collection("friends").insert(friend, function(err, result) {
@@ -77,9 +77,9 @@ UserService.prototype = (function()
         		return true;
         	}
         	_.each(items, function(item) {
-				var date = self.moment(item.timestamp);
+				var date = moment(item.timestamp);
 
-				if (self.moment().diff(date, 'days') > 10) {
+				if (moment().diff(date, 'days') > 10) {
 					isOld = true;
 					return isOld;
 				}

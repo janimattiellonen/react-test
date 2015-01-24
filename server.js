@@ -41,7 +41,7 @@ app.get('/friends', function(req, res) {
 	});
 
 
-	var userService = new UserService(db, client, moment);
+	var userService = new UserService(db, client);
 
 	userService.getCurrentFriends(function(users) {
 		res.send(users);
