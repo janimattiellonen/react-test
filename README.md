@@ -12,6 +12,6 @@ Just me testing the [React](http://facebook.github.io/react/index.html) library 
 
 1) `grunt watch`
 
-2) In a new CLI tab: `grunt http-server`
+2) In a new CLI tab: `grunt express:dev watch`
 
-3) Navigate to (http://localhost:9009)
+3) Navigate to (http://localhost:4002)
