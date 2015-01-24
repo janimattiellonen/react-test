@@ -12,7 +12,8 @@ app.get('/', function (req, res) {
 })
 
 
-app.get('/tweets', function(req, res) {
+app.get('/friends', function(req, res) {
+
 
 	var client = new Twitter({
 		consumer_key: Config.twitter.consumerKey,
@@ -31,7 +32,6 @@ app.get('/tweets', function(req, res) {
 		var friends = [];
 
 		_.each(data.users, function(friend) {
-				console.log("name: " + JSON.stringify(friend));
 				friends.push({
 					name: friend.name,
 					screenName: friend.screen_name,

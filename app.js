@@ -1,6 +1,5 @@
-var React = require('React'); 
+var React = require('react/addons'); 
 
-var Friend = require('./components/Friend');
 var Friends = require('./components/Friends');
 
 React.render(

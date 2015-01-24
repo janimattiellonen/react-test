@@ -5,7 +5,7 @@ var Friend = React.createClass({
 	render: function() {
 		return (
 			<div className="Friend">
-				<h2>{this.props.friendName}</h2>
+				<h2>{this.props.friend.name}</h2>
 			</div>
 		);
 	}
