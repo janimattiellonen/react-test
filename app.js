@@ -1,5 +1,8 @@
 var React = require('React'); 
 
+var Friend = require('./components/Friend');
+var Friends = require('./components/Friends');
+
 React.render(
-  <h1>Hello, world!</h1>, document.getElementById('app')
+  <Friends />, document.getElementById('app')
 );
