@@ -7,13 +7,12 @@ var app = module.exports = express();
 
 app.use(express.static(__dirname + '/web'));
 
+
 app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/web/index.html');
 })
 
-
 app.get('/friends', function(req, res) {
-
 
 	var client = new Twitter({
 		consumer_key: Config.twitter.consumerKey,
@@ -25,8 +24,8 @@ app.get('/friends', function(req, res) {
 	client.get('friends/list', function(error, data, response){
 
 		if(error) {
-			console.log(error + ": " + response.message);
 			res.send(error);
+			return;
 		} else {
 
 		var friends = [];
@@ -41,10 +40,7 @@ app.get('/friends', function(req, res) {
 		}
 
 		res.send(friends);
-
 	});
-
-	
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
