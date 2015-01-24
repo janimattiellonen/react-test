@@ -1,0 +1,11 @@
+var config = {}
+
+config.twitter = {
+	consumerKey: '',
+	consumerSecret: '',
+	accessTokenKey: '',
+	accessTokenSecret: ''
+};
+
+
+module.exports = config;

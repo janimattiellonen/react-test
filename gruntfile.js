@@ -18,6 +18,18 @@ module.exports = function(grunt) {
             }
         },
 
+        express: {
+            options: {
+                background: true,
+            },
+            dev: {
+                options: {
+                    port: 4002,
+                    script: 'server.js'
+                }
+            },
+        },
+
         watch: {
 
             less: {
@@ -37,41 +49,7 @@ module.exports = function(grunt) {
             }
         },
 
-        'http-server': {
-
-            'dev': {
-
-                // the server root directory
-                root: 'web',
-
-                port: 9009,
-
-                hostname: "127.0.0.1",
-
-                middleware: function(connect, options, middlewares) {
-                    console.log("dsdddsgfg");
-                    middlewares.unshift(function(req, res, next) {
-                        res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1');
-                        res.setHeader('Access-Control-Allow-Methods', '*');
-                        next();
-                    });
-
-                    return middlewares;
-                },
-
-                cache: 0,
-                showDir : true,
-                autoIndex: true,
-
-                // server default file extension
-                ext: "html",
-
-                // run in parallel with other tasks
-                runInBackground: false
-
-            }
-
-        },
+        
 
         browserify: {
             dist: {
@@ -86,6 +64,10 @@ module.exports = function(grunt) {
 
     });
 
+
+    grunt.loadNpmTasks('grunt-express-server');
     grunt.registerTask('css', ['less']);
-    grunt.registerTask('default', ['css', 'imagemin', 'browserify']);
+    grunt.registerTask('default', ['css',  'browserify']);
+    grunt.registerTask('server', [ 'express:dev', 'watch' ])
+      
 };
