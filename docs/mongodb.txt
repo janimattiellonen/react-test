@@ -1,0 +1,3 @@
+
+db.friends.insert({'name' : 'Mikko Forström','pekkisx' : 'test1@test.com','description' : 'Trololoo', 'timestamp': ISODate()});
+

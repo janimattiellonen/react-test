@@ -14,9 +14,7 @@ var Friends = React.createClass({
 	},
 
 	componentDidMount: function() {
-		console.log("componentDidMount");
 		var self = this;
-
 
 		$.get('/friends', function(data) {
     		self.setState({
